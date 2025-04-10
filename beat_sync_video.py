@@ -23,6 +23,9 @@ from Transitions.transitions import (
     dissolve,
     slide_transition,
     zoom_transition,
+    flash_transition,
+    glitch_transition,
+    circular_wipe_transition
 )
 
 
@@ -425,50 +428,56 @@ def select_transition(beat_index, beat_times, audio_features, prev_clip, next_cl
     if is_phrase_change and bass_strength > 20:
         # Major phrase changes with strong bass - dramatic transitions
         transition_options = [
-            (zoom_transition, 0.5, "Zoom", "Phrase change - dramatic impact"),
-            (slide_transition, 0.3, "Slide", "Phrase change - directional movement"),
-            (blur_transition, 0.2, "Blur", "Phrase change - defocus effect"),
+            (zoom_transition, 0.4, "Zoom", "Phrase change - dramatic impact"),
+            (flash_transition, 0.3, "Flash", "Phrase change - bright impact"),
+            (slide_transition, 0.2, "Slide", "Phrase change - directional movement"),
+            (circular_wipe_transition, 0.1, "Circular Wipe", "Phrase change - revealing effect"),
         ]
         beat_type = "Phrase change"
     elif bass_strength > 25 and onset_strength > 1.5:
         # Strong bass + sharp onset - high energy transitions
         transition_options = [
-            (zoom_transition, 0.6, "Zoom", "High energy - dramatic impact"),
-            (blur_transition, 0.3, "Blur", "High energy - defocus effect"),
-            (slide_transition, 0.1, "Slide", "High energy - directional movement"),
+            (flash_transition, 0.4, "Flash", "High energy - bright impact"),
+            (zoom_transition, 0.3, "Zoom", "High energy - dramatic impact"),
+            (glitch_transition, 0.2, "Glitch", "High energy - digital distortion"),
+            (blur_transition, 0.1, "Blur", "High energy - defocus effect"),
         ]
         beat_type = "High energy moment"
     elif onset_strength > 2.0:
-        # Sharp onset - prioritize blur transitions
+        # Sharp onset - prioritize glitch and flash transitions
         transition_options = [
-            (blur_transition, 0.7, "Blur", "Sharp onset - defocus effect"),
-            (dissolve, 0.2, "Dissolve", "Sharp onset - smooth blend"),
+            (glitch_transition, 0.4, "Glitch", "Sharp onset - digital distortion"),
+            (flash_transition, 0.3, "Flash", "Sharp onset - bright impact"),
+            (blur_transition, 0.2, "Blur", "Sharp onset - defocus effect"),
             (slide_transition, 0.1, "Slide", "Sharp onset - directional movement"),
         ]
         beat_type = "Sharp onset moment"
     elif is_downbeat and bass_strength > 20:
         # Strong downbeat - mix of transitions
         transition_options = [
-            (zoom_transition, 0.4, "Zoom", "Strong downbeat - moderate impact"),
-            (dissolve, 0.3, "Dissolve", "Strong downbeat - smooth blend"),
-            (slide_transition, 0.2, "Slide", "Strong downbeat - directional movement"),
-            (blur_transition, 0.1, "Blur", "Strong downbeat - defocus effect"),
+            (flash_transition, 0.3, "Flash", "Strong downbeat - bright impact"),
+            (zoom_transition, 0.25, "Zoom", "Strong downbeat - moderate impact"),
+            (dissolve, 0.2, "Dissolve", "Strong downbeat - smooth blend"),
+            (slide_transition, 0.15, "Slide", "Strong downbeat - directional movement"),
+            (circular_wipe_transition, 0.1, "Circular Wipe", "Strong downbeat - revealing effect"),
         ]
         beat_type = "Strong downbeat"
     elif is_downbeat:
         # Regular downbeat - smoother transitions
         transition_options = [
-            (dissolve, 0.5, "Dissolve", "Downbeat - smooth blend"),
-            (blur_transition, 0.3, "Blur", "Downbeat - defocus effect"),
+            (dissolve, 0.3, "Dissolve", "Downbeat - smooth blend"),
+            (circular_wipe_transition, 0.25, "Circular Wipe", "Downbeat - revealing effect"),
+            (blur_transition, 0.25, "Blur", "Downbeat - defocus effect"),
             (slide_transition, 0.2, "Slide", "Downbeat - subtle movement"),
         ]
         beat_type = "Normal downbeat"
     else:
         # Regular beats - mostly dissolves with occasional effects
         transition_options = [
-            (dissolve, 0.7, "Dissolve", "Regular beat - smooth blend"),
+            (dissolve, 0.5, "Dissolve", "Regular beat - smooth blend"),
             (blur_transition, 0.2, "Blur", "Regular beat - subtle defocus"),
-            (slide_transition, 0.1, "Slide", "Regular beat - subtle movement"),
+            (slide_transition, 0.15, "Slide", "Regular beat - subtle movement"),
+            (circular_wipe_transition, 0.15, "Circular Wipe", "Regular beat - revealing effect"),
         ]
         beat_type = "Regular beat"
 
@@ -481,7 +490,7 @@ def select_transition(beat_index, beat_times, audio_features, prev_clip, next_cl
     selected_index = np.random.choice(len(transition_options), p=normalized_weights)
     transition_func, _, transition_name, reason = transition_options[selected_index]
 
-    # For slide transitions, select direction based on musical features and context
+    # For specific transitions, add extra configuration
     if transition_func == slide_transition:
         # Track consecutive slide count to prevent overuse
         if not hasattr(select_transition, "last_slide_beat"):
@@ -527,6 +536,62 @@ def select_transition(beat_index, beat_times, audio_features, prev_clip, next_cl
             transition_func = lambda c1, c2, d: slide_transition(
                 c1, c2, d, direction=direction
             )
+    
+    # For glitch transition, adjust intensity based on music energy
+    elif transition_func == glitch_transition:
+        intensity = min(1.0, max(0.3, (onset_strength + bass_strength / 20) / 2))
+        n_glitches = min(15, max(5, int(tempo / 20)))  # More glitches for faster tempos
+        
+        transition_name = f"Glitch (intensity: {intensity:.1f}, glitches: {n_glitches})"
+        transition_func = lambda c1, c2, d: glitch_transition(
+            c1, c2, d, intensity=intensity, n_glitches=n_glitches
+        )
+    
+    # For flash transition, adjust color and intensity based on music energy
+    elif transition_func == flash_transition:
+        # Higher intensity for stronger beats
+        intensity = min(1.0, max(0.5, (onset_strength + bass_strength / 30)))
+        
+        # Choose flash color based on music characteristics
+        if bass_strength > 25:  # Strong bass - warm colors
+            colors = [(255, 180, 0), (255, 120, 0), (255, 255, 255)]  # Orange/yellow tones
+        elif onset_strength > 2.0:  # Sharp onset - bright colors
+            colors = [(255, 255, 255), (220, 220, 255), (200, 255, 200)]  # White/blue tones
+        else:  # Default - white
+            colors = [(255, 255, 255)]
+            
+        flash_color = random.choice(colors)
+        color_name = "white" if flash_color == (255, 255, 255) else "colored"
+        
+        transition_name = f"Flash ({color_name}, intensity: {intensity:.1f})"
+        transition_func = lambda c1, c2, d: flash_transition(
+            c1, c2, d, flash_color=flash_color, flash_intensity=intensity
+        )
+    
+    # For circular wipe, use different configurations based on context
+    elif transition_func == circular_wipe_transition:
+        # Determine if we should use a reverse wipe (contracting instead of expanding)
+        # Use reverse wipe for phrase endings, normal wipe for beginnings
+        reverse = beat_index % 16 >= 8
+        
+        # Choose center position based on content
+        if is_phrase_change:
+            # Center for dramatic effect on phrase changes
+            center = (0.5, 0.5)
+        elif is_downbeat:
+            # Slightly off-center for downbeats
+            center = (random.uniform(0.4, 0.6), random.uniform(0.4, 0.6))
+        else:
+            # More variety for regular beats
+            center = (random.uniform(0.3, 0.7), random.uniform(0.3, 0.7))
+            
+        direction = "contracting" if reverse else "expanding"
+        center_desc = "center" if center == (0.5, 0.5) else "off-center"
+        
+        transition_name = f"Circular Wipe ({direction}, {center_desc})"
+        transition_func = lambda c1, c2, d: circular_wipe_transition(
+            c1, c2, d, reverse=reverse, center=center
+        )
 
     # Print transition information
     print(

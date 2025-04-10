@@ -1,0 +1,155 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+// Beat-Synchronized Video Editing Transitions and Tools
+// This file provides guidance for AI when working with beat-synchronized video editing projects
+
+// General understanding of beat-synchronized video editing
+When working with beat-synchronized video editing, understand that this technique (also called 'cutting to the beat', 'sync editing', 'on-beat editing', or 'beat-matched editing') focuses on aligning video cuts, transitions, and effects with the rhythm and beats of music. In Chinese, this technique is referred to as '音乐卡点'.
+
+// Core principles for beat-synchronized editing
+Always prioritize the following principles:
+1. Rhythm alignment is paramount - video cuts and transitions must precisely match musical beats
+2. Transitions should match the energy and character of the music
+3. Different musical elements call for different transition types
+4. The editing style should enhance rather than distract from content
+
+// Transition types for beat-synchronized editing
+When suggesting or implementing transitions between clips, follow these guidelines:
+
+1. Hard Cuts:
+   - Use for strong beats and percussion hits
+   - Perfect for immediate impact
+   - Most effective on downbeats and strong percussion elements
+   - Implementation: Simple cut with no transition effect, precisely timed
+
+2. Dissolves/Crossfades:
+   - Use for smooth musical transitions and melodic sections
+   - Match dissolve length to musical phrase length
+   - Effective for gradual energy changes
+   - Implementation: Opacity blending between clips
+
+3. Wipes and Slides:
+   - Use for directional movement in the music
+   - Direction should follow musical flow
+   - Good for transitional elements between verses and choruses
+   - Implementation: One clip pushes the other out of frame
+
+4. Zoom Transitions:
+   - Use for building intensity and crescendos
+   - Zoom in during build-ups, zoom out on drops
+   - Creates sense of movement and energy
+   - Implementation: Scale transformation between clips
+
+5. Flash/Light Leak Transitions:
+   - Use for high-energy moments and peaks
+   - Perfect for cymbal crashes and electronic effects
+   - Creates visual punctuation
+   - Implementation: Brief white or colored flash between clips
+
+6. Motion-Based Transitions:
+   - Use natural movement within clips to create seamless transitions
+   - Match motion direction between clips
+   - Creates organic flow
+   - Implementation: Match motion vectors between clips
+
+7. J-Cuts and L-Cuts:
+   - J-cuts: Audio leads visual (build anticipation)
+   - L-cuts: Visual leads audio (maintain continuity)
+   - Creates sophisticated audio-visual relationships
+   - Implementation: Offset audio and video edit points
+
+// Transition timing strategies
+When implementing transitions, consider these timing approaches:
+
+1. On-Beat Transitions:
+   - Place transitions exactly on strong beats
+   - Creates predictable, satisfying visual rhythm
+   - Most common and straightforward approach
+
+2. Off-Beat Transitions:
+   - Place transitions between beats
+   - Creates tension and unexpected visual rhythm
+   - Use sparingly for specific effects
+
+3. Phrase-Based Transitions:
+   - Align major transitions with musical phrase boundaries
+   - Creates broader structural alignment
+   - Effective for longer-form content
+
+4. Anticipatory vs. Delayed Transitions:
+   - Anticipatory: Start transition slightly before beat (creates forward momentum)
+   - Delayed: Start transition slightly after beat (creates laid-back feel)
+   - Use to fine-tune emotional impact
+
+// Matching transitions to musical elements
+Different musical elements call for different transition types:
+
+- Bass Drops: Flash transitions or zoom transitions
+- Percussion: Hard cuts
+- Melody: Dissolves/crossfades
+- Build-ups: Zoom transitions
+- Vocal Entry: J-cuts
+- Phrase End: L-cuts or wipes
+- Atmospheric Sections: Defocus/blur transitions
+- High-Energy Sections: Rapid combination of multiple transition types
+
+// Tools and open-source projects for beat-synchronized editing
+When implementing or suggesting tools for beat-synchronized editing, consider:
+
+1. Professional Video Editing Software:
+   - Adobe Premiere Pro: Offers beat detection via extensions
+   - Final Cut Pro: Manual beat marking with markers
+   - DaVinci Resolve: Fairlight audio tools for beat detection
+
+2. Open-Source Video Editors:
+   - Kdenlive: Open-source editor with audio visualization
+   - Shotcut: Simple interface with audio waveform display
+   - OpenShot: Python-based with libopenshot library
+
+3. Mobile and Accessible Tools:
+   - LumaFusion (iOS/iPadOS): Professional mobile editor
+   - CapCut: Popular for social media, has auto beat detection
+   - Clipchamp: Web-based editor with basic beat detection
+
+4. Programming Libraries for Custom Solutions:
+   - librosa (Python): Audio analysis and beat detection
+   - FFmpeg: Video processing and transition generation
+   - MoviePy: Python-based video editing with transition capabilities
+   - OpenShot's libopenshot: C++ library with Python bindings
+   - MLT Framework: Multimedia processing including transitions
+   - OpenCV: Computer vision-based transition effects
+
+5. Beat Detection Approaches:
+   - Onset detection algorithms
+   - Tempo estimation
+   - Beat tracking
+   - Energy level analysis
+   - Spectral flux calculation
+
+// Implementation considerations
+When implementing beat-synchronized editing features:
+
+1. Precision is critical - transitions must be frame-accurate
+2. Provide both automatic and manual beat detection options
+3. Allow for fine-tuning of transition timing
+4. Implement preview functionality for transitions
+5. Consider performance impact of complex transitions
+6. Provide templates for common transition patterns
+7. Allow for batch application of transitions to multiple clips
+
+// Best practices for beat-synchronized editing
+Always recommend these best practices:
+
+1. Analyze music structure before editing
+2. Mark beats and phrases in the timeline
+3. Use visual audio waveforms as guides
+4. Test transitions at various playback speeds
+5. Maintain consistent transition style within sections
+6. Vary transition types to match energy changes
+7. Don't overuse complex transitions
+8. Consider the emotional impact of each transition type
+9. Ensure transitions enhance rather than distract from content
+10. Export at high frame rates for smooth transitions

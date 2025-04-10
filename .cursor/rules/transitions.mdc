@@ -1,0 +1,677 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+[transitions.py](mdc:Transitions/transitions.py)
+[demo_transitions.py](mdc:Transitions/demo_transitions.py)
+# Beat-Synchronized Video Editing: Transitions and Tools
+
+## Introduction
+
+Beat-synchronized video editing, also known as "cutting to the beat," "sync editing," "on-beat editing," or "beat-matched editing" (音乐卡点 in Chinese), is a powerful technique used in creating engaging short-form content. This technique involves aligning video cuts, keyframes, and transitions with the beat structure of music to create rhythmically engaging content that resonates with viewers.
+
+This research builds upon previous work exploring how to select the right clips to match music structure and energy flow. Now, we focus specifically on the transitions between these clips and the tools/open-source projects commonly used to create these transitions.
+
+## Part 1: Understanding Video Transitions
+
+### General Video Transition Types
+
+Before focusing on beat-synchronized transitions specifically, it's important to understand the full range of transition types available in video editing:
+
+#### 1. Straight Cut (Hard Cut)
+- Most basic transition - simply moving from one shot to another with no effects
+- Foundation of continuity editing
+- Creates immediate impact
+- Used in virtually every film and video production
+
+#### 2. Jump Cut
+- Removes a section of one continuous shot, creating a feeling of lurching forward through time
+- Creates a disjointed, energetic effect
+- Often used to show passage of time or create stylistic effect
+- Popular in music videos and fast-paced content
+
+#### 3. Dissolve Transitions
+- **Standard Dissolve**: Gradually fades one shot into another
+- **Cross Dissolve**: Blends one shot into the next
+- **Additive Dissolve**: Brightly flashing into the next frame
+- Often signals entering a new scene and time passage
+- Adds classic Hollywood flair depending on usage
+
+#### 4. Match Cut
+- Transitions where similar things or colors are matched through a transition
+- Creates conceptual links between different scenes
+- Connects ideas or themes across different locations or times
+
+#### 5. Sound Transitions (J and L Cuts)
+- **J Cut**: Audio from the following shot plays before the visual cut (audio leads video)
+- **L Cut**: Audio from the previous shot continues into the next shot (video leads audio)
+- Creates conceptual links between scenes through sound
+- Helps maintain flow and build tension
+
+#### 6. Parallel Editing
+- Jump cuts between two different narratives happening simultaneously
+- Commonly used for flashbacks
+- Creates tension by showing multiple storylines at once
+
+#### 7. Spin Transition
+- Spinning the frame to transition to a new scene
+- Can add a comedic effect
+- Creates a sense of disorientation or excitement
+
+#### 8. Wipe Transitions
+- Visually "wipes" one scene away to reveal another
+- Various styles: horizontal, vertical, diagonal, clock wipes
+- Creates a distinct visual style
+
+#### 9. Cutaway Shot
+- Inserts a shot of another object or action into an ongoing action sequence
+- Used to show relevant information outside the main action
+- Provides context or reaction shots
+
+#### 10. Other Specialized Transitions
+- **Fade In/Fade Out**: Gradually appearing from or disappearing to black (or another color)
+- **Iris In/Iris Out**: Circular opening or closing of the frame
+- **Defocus Transition**: Blurring the image to transition to another scene
+- **Morph**: Transforming one image into another
+- **Split Screen**: Showing multiple scenes simultaneously
+- **Whip Pan**: Rapid camera movement that blurs the frame, used as a transition
+
+## Part 2: Transitions for Beat-Synchronized Editing
+
+When creating beat-synchronized videos, transitions should match the music's energy and rhythm. The following transitions are particularly effective for beat-synchronized editing:
+
+### 1. Hard Cuts (Straight Cuts)
+- **Best for**: Strong beats, percussion hits, drum patterns
+- **Why it works**: Creates immediate impact that can be precisely timed to beats
+- **Musical elements**: Kick drums, snare hits, bass drops, percussive elements
+- **Technique**: Place cuts exactly on beat for maximum impact
+- **Example use**: Cutting to a new shot exactly when a drum hit occurs
+
+### 2. Flash/Light Leak Transitions
+- **Best for**: High-energy moments, cymbal crashes, electronic effects
+- **Why it works**: Creates visual punctuation that mimics the brightness and impact of certain sounds
+- **Musical elements**: Cymbal crashes, electronic risers, snare hits, high-frequency elements
+- **Technique**: Brief white or colored flash timed with musical accents
+- **Example use**: Flash transition on a cymbal crash or at the peak of a build-up
+
+### 3. Zoom Transitions (Push/Pull)
+- **Best for**: Building intensity, crescendos, rising musical elements
+- **Why it works**: Creates a sense of movement and energy that matches musical build-ups
+- **Musical elements**: Rising melodies, crescendos, build-ups before drops
+- **Technique**: Zoom in for building tension, zoom out for release
+- **Example use**: Zoom in during a musical build-up, then cut on the drop
+
+### 4. Wipe/Slide Transitions
+- **Best for**: Directional movement in music, transitioning between sections
+- **Why it works**: Follows the directional energy of the music
+- **Musical elements**: Sweeping sounds, transitional elements between verses and choruses
+- **Technique**: Direction of wipe should match the perceived direction of the music
+- **Example use**: Horizontal wipe during a transitional sweep between verse and chorus
+
+### 5. Dissolves/Crossfades
+- **Best for**: Smooth musical transitions, melodic sections
+- **Why it works**: Creates gradual blend that works well for flowing sections
+- **Musical elements**: Melodic transitions, ambient sections, sustained notes
+- **Technique**: Length of dissolve should match musical phrase length
+- **Example use**: Cross dissolve during a melodic bridge or between related scenes
+
+### 6. Motion-Based Transitions
+- **Best for**: Matching natural movement to musical flow
+- **Why it works**: Uses the natural motion in footage to create seamless transitions
+- **Musical elements**: Any rhythmic element where motion can be synchronized
+- **Technique**: Match camera or subject movement to rhythm
+- **Example use**: Whip pan timed with a musical sweep or transition
+
+### 7. J-Cuts and L-Cuts
+- **Best for**: Building anticipation, creating smooth audio transitions
+- **Why it works**: Creates interesting rhythmic relationships between audio and visual
+- **Musical elements**: Vocal entries, instrumental solos, new musical elements
+- **Technique**: J-cut (audio leads visual) builds anticipation; L-cut (visual leads audio) creates continuity
+- **Example use**: J-cut to introduce a vocal before showing the singer
+
+### 8. Jump Cuts
+- **Best for**: Rapid rhythmic sections, electronic music
+- **Why it works**: Creates energetic, staccato visual rhythm that matches fast musical elements
+- **Musical elements**: Fast percussion, electronic beats, glitch sounds
+- **Technique**: Series of jump cuts timed to match rhythm pattern
+- **Example use**: Series of jump cuts following a fast hi-hat or percussion pattern
+
+### 9. Defocus/Blur Transitions
+- **Best for**: Dreamy or atmospheric sections
+- **Why it works**: Creates smooth transitions between contrasting scenes
+- **Musical elements**: Ambient sections, reverb tails, echoing elements
+- **Technique**: Gradual blurring between scenes
+- **Example use**: Defocus transition during a reverb tail or ambient break
+
+### 10. Dynamic Cutting
+- **Best for**: High-energy sequences, drops, climactic moments
+- **Why it works**: Creates visual intensity that matches musical energy
+- **Musical elements**: Electronic music drops, intense rhythmic sections
+- **Technique**: Rapid succession of cuts following complex rhythmic patterns
+- **Example use**: Series of quick cuts during a bass drop or climactic section
+
+### Transition Timing Strategies
+
+The timing of transitions is just as important as the type of transition used:
+
+#### 1. On-Beat Transitions
+- Placing transitions exactly on beats for maximum impact
+- Creates predictable, satisfying visual rhythm
+- Works best for strong, percussive elements
+
+#### 2. Off-Beat Transitions
+- Placing transitions between beats
+- Creates tension and unexpected visual rhythm
+- Can make editing feel more dynamic and less predictable
+
+#### 3. Phrase-Based Transitions
+- Timing transitions to musical phrases rather than individual beats
+- Creates broader structural alignment with the music
+- Works well for longer-form content
+
+#### 4. Anticipatory Transitions
+- Starting transitions slightly before beats
+- Creates anticipation and forward momentum
+- Works well for building tension
+
+#### 5. Delayed Transitions
+- Placing transitions slightly after beats
+- Creates a laid-back, relaxed feel
+- Can be effective for certain musical genres
+
+#### 6. Rhythmic Pattern Matching
+- Creating visual patterns that match specific rhythmic elements
+- Particularly effective for complex rhythms
+- Creates sophisticated audio-visual synchronization
+
+### Matching Transitions to Musical Elements
+
+Different musical elements call for different types of transitions:
+
+- **Bass Drops**: Hard cuts, flash transitions, or zoom effects
+- **Percussion/Drums**: Hard cuts timed precisely with hits
+- **Melodic Sections**: Dissolves and motion-based transitions
+- **Build-ups**: Accelerating cut pace or zoom transitions
+- **Vocal Entries**: J-cuts (audio leads visual)
+- **Musical Phrase Endings**: L-cuts or wipe transitions
+- **Atmospheric Sections**: Defocus/blur transitions
+- **High-Energy Sections**: Dynamic cutting with multiple transition types
+
+## Part 3: Tools and Open-Source Projects for Beat-Synchronized Editing
+
+### Commercial Software with Beat Detection
+
+#### 1. DaVinci Resolve with Music Beat Marker
+- **Type**: Professional video editing software with Lua script extension
+- **Beat Detection**: Via the "Music Beat Marker" Lua script
+- **Key Features**:
+  - Marker Evaluation Button: Tap markers on the timeline to the tempo
+  - Two Colors CheckBox: Display markers in different colors for beats and sub-beats
+  - Track and Clip selection for audio analysis
+  - Tempo BPM and Frame Rep settings
+  - Beat Resolution options (4/4, 3/4, etc.)
+  - Offset adjustment for precise marker placement
+  - Metronome clip generation
+- **Workflow**: The script allows for easy and fast workflow by snapping to markers at the Edit Page
+- **Availability**: Free Lua script for DaVinci Resolve
+
+#### 2. Adobe Premiere Pro/Elements
+- **Type**: Professional/Consumer video editing software
+- **Beat Detection**: Built-in beat detection in Elements version
+- **Key Features**:
+  - Marks beats on timeline
+  - Requires manual cutting and transition application
+  - Extensive transition library
+  - Integration with After Effects for advanced transitions
+- **Workflow**: Beat detector helps by marking beats on the timeline, leaving the cutting to the editor
+- **Availability**: Paid subscription (Pro) or one-time purchase (Elements)
+
+#### 3. MAGIX Fastcut
+- **Type**: Consumer video editing software
+- **Beat Detection**: Automatic beat detection
+- **Key Features**:
+  - Scene selection
+  - Beat detection
+  - Automatic transitions
+  - Simplified workflow for beginners
+- **Workflow**: Automatically detects beats and can apply transitions
+- **Availability**: Paid software
+
+#### 4. Movavi Video Editor
+- **Type**: Consumer video editing software
+- **Beat Detection**: Basic beat marking
+- **Key Features**:
+  - Marks beats for manual editing
+  - User-friendly interface
+  - Various transition effects
+- **Workflow**: Marks beats but requires manual cutting
+- **Availability**: Free version with limitations, paid for full features
+
+#### 5. Sony Vegas Pro
+- **Type**: Professional video editing software
+- **Beat Detection**: Timeline audio analysis
+- **Key Features**:
+  - Audio waveform visualization
+  - Ability to align clips with audio
+  - Extensive transition library
+- **Workflow**: Use clap during filming to align in timeline
+- **Availability**: Paid software
+
+#### 6. Filmora (Wondershare)
+- **Type**: Consumer video editing software
+- **Beat Detection**: Built-in beat detection function
+- **Key Features**:
+  - Automatically marks audio beats
+  - Simplified editing interface
+  - Preset transitions
+  - Beat detection tool
+- **Workflow**: Beat detection function marks beats for easier editing
+- **Availability**: Free trial, paid for full version
+
+#### 7. VideoProc Vlogger
+- **Type**: Consumer video editing software
+- **Beat Detection**: Automatic beat detector
+- **Key Features**:
+  - Generates markers with a few clicks
+  - Simplified interface
+  - Preset transitions
+- **Workflow**: Automatic beat detection generates markers for editing
+- **Availability**: Free software
+
+#### 8. LumaFusion (Mobile)
+- **Type**: Professional mobile video editing app
+- **Beat Detection**: Audio waveform visualization
+- **Key Features**:
+  - Multi-track editing
+  - Keyframe animations
+  - Various transition effects
+- **Workflow**: Visual audio waveform helps with manual beat syncing
+- **Availability**: Paid mobile app
+
+#### 9. CapCut
+- **Type**: Mobile and desktop video editing app
+- **Beat Detection**: Auto beat sync feature
+- **Key Features**:
+  - Automatic beat detection
+  - One-click beat syncing
+  - Various transition effects
+  - Templates for beat-synced videos
+- **Workflow**: Simplified auto-sync to beat feature
+- **Availability**: Free app
+
+### Open-Source Video Editors
+
+#### 1. Kdenlive
+- **Type**: Open-source video editor
+- **Beat Detection**: Via audio visualization
+- **Key Features**:
+  - Multi-track editing
+  - Customizable layouts
+  - Advanced color correction
+  - Various transition effects
+- **Workflow**: Manual beat syncing using audio waveform
+- **Availability**: Free and open-source
+- **Platform**: Windows, Mac, Linux
+
+#### 2. OpenShot
+- **Type**: Open-source video editor
+- **Beat Detection**: Basic audio visualization
+- **Key Features**:
+  - Simple, user-friendly interface
+  - Various transition effects
+  - Animation framework
+- **Workflow**: Manual beat syncing using audio waveform
+- **Availability**: Free and open-source
+- **Platform**: Windows, Mac, Linux
+
+#### 3. Shotcut
+- **Type**: Open-source video editor
+- **Beat Detection**: Audio waveform visualization
+- **Key Features**:
+  - Multi-track editing
+  - Various transition effects
+  - Native timeline editing
+- **Workflow**: Manual beat syncing using audio waveform
+- **Availability**: Free and open-source
+- **Platform**: Windows, Mac, Linux
+
+#### 4. Olive
+- **Type**: Open-source video editor
+- **Beat Detection**: Audio visualization
+- **Key Features**:
+  - Professional-grade interface
+  - Node-based effects
+  - Various transition options
+- **Workflow**: Manual beat syncing using audio visualization
+- **Availability**: Free and open-source
+- **Platform**: Windows, Mac, Linux
+
+#### 5. Blender (Video Sequencer)
+- **Type**: Open-source 3D creation suite with video editing capabilities
+- **Beat Detection**: Via audio visualization
+- **Key Features**:
+  - Integration with 3D animation
+  - Various transition effects
+  - Python scripting support
+- **Workflow**: Manual beat syncing, potential for custom Python scripts
+- **Availability**: Free and open-source
+- **Platform**: Windows, Mac, Linux
+
+### Programming Libraries for Custom Solutions
+
+#### 1. Librosa (Python)
+- **Type**: Audio analysis library
+- **Beat Detection**: Advanced algorithms for beat detection
+- **Key Features**:
+  - Onset detection
+  - Beat tracking
+  - Tempo estimation
+  - Audio feature extraction
+- **Workflow**: Can be used to build custom beat detection tools
+- **Availability**: Free and open-source
+- **Example Use**: Detect beats in audio files and generate timestamps for video editing
+
+#### 2. FFmpeg
+- **Type**: Multimedia framework
+- **Beat Detection**: None natively, but can be combined with other tools
+- **Key Features**:
+  - Video processing
+  - Transition generation
+  - Command-line interface
+  - Extensive format support
+- **Workflow**: Can be used to implement transitions based on beat timestamps
+- **Availability**: Free and open-source
+- **Example Use**: Apply transitions at specific timestamps detected by Librosa
+
+#### 3. MoviePy (Python)
+- **Type**: Video editing library
+- **Beat Detection**: None natively, but can be combined with Librosa
+- **Key Features**:
+  - Python-based video editing
+  - Transition capabilities
+  - Effects and compositing
+- **Workflow**: Can be used to create custom beat-synced transitions
+- **Availability**: Free and open-source
+- **Example Use**: Create a script that detects beats with Librosa and applies transitions with MoviePy
+
+#### 4. OpenShot's libopenshot
+- **Type**: C++ library with Python bindings
+- **Beat Detection**: None natively
+- **Key Features**:
+  - Video transitions
+  - Effects processing
+  - Multi-language support
+- **Workflow**: Can be used to build custom video editing tools
+- **Availability**: Free and open-source
+- **Example Use**: Create a custom application with beat detection and transition application
+
+#### 5. MLT Framework
+- **Type**: Multimedia framework
+- **Beat Detection**: None natively
+- **Key Features**:
+  - Multimedia processing
+  - Transition effects
+  - Plugin architecture
+- **Workflow**: Can be used as a backend for custom video editing tools
+- **Availability**: Free and open-source
+- **Example Use**: Build a custom video editor with beat detection capabilities
+
+#### 6. OpenCV
+- **Type**: Computer vision library
+- **Beat Detection**: None natively
+- **Key Features**:
+  - Image and video processing
+  - Computer vision algorithms
+  - Multi-platform support
+- **Workflow**: Can be used for computer vision-based transition effects
+- **Availability**: Free and open-source
+- **Example Use**: Create motion-based transitions that respond to beat detection
+
+### Custom Solution Approaches
+
+#### 1. Combined Librosa + MoviePy Workflow
+- **Process**:
+  1. Use Librosa to detect beats in the audio track
+  2. Generate timestamp file with beat locations
+  3. Use MoviePy to apply transitions at those timestamps
+  4. Export final video with beat-synced transitions
+- **Advantages**: Highly customizable, precise beat detection
+- **Disadvantages**: Requires programming knowledge, manual setup
+
+#### 2. DaVinci Resolve + Lua Script Workflow
+- **Process**:
+  1. Import audio and video into DaVinci Resolve
+  2. Use Music Beat Marker script to detect beats
+  3. Place markers at beat locations
+  4. Manually apply transitions at marker points
+  5. Export final video
+- **Advantages**: Professional editing environment, visual workflow
+- **Disadvantages**: Requires manual application of transitions
+
+#### 3. Automated Pipeline with FFmpeg
+- **Process**:
+  1. Detect beats with Librosa
+  2. Generate FFmpeg command script with transition points
+  3. Process video with FFmpeg to apply transitions
+  4. Export final video
+- **Advantages**: Batch processing capability, automation
+- **Disadvantages**: Command-line based, less visual feedback
+
+## Conclusion
+
+Beat-synchronized video editing is a powerful technique for creating engaging content, particularly for short-form videos on platforms like TikTok. The effectiveness of this technique relies heavily on the appropriate selection and timing of transitions to match the music's energy and rhythm.
+
+The most effective transitions for beat-synchronized editing include hard cuts for strong beats, flash transitions for high-energy moments, zoom transitions for building intensity, and motion-based transitions that utilize the natural movement within clips. The timing of these transitions is crucial, with options ranging from on-beat transitions for maximum impact to phrase-based transitions for broader structural alignment.
+
+A variety of tools are available for creating beat-synchronized transitions, from commercial software with built-in beat detection like Filmora and VideoProc Vlogger to open-source libraries like Librosa and MoviePy for custom solutions. The choice of tool depends on the user's technical expertise, budget, and specific requirements.
+
+For those seeking to create professional-quality beat-synchronized videos, a combination of understanding the appropriate transitions for different musical elements and mastering the tools to implement these transitions will yield the most compelling results.
+# Visual Examples of Beat-Synchronized Video Transitions
+
+This document provides visual representations of the key transition types used in beat-synchronized video editing.
+
+## 1. Hard Cut Transition
+
+```
+Clip A  |-------|
+Clip B           |-------|
+Audio   ♪    ♪    ♪    ♪
+        ^
+      Hard cut exactly on beat
+```
+
+Hard cuts create immediate impact when placed precisely on strong beats. They work particularly well for percussion hits and bass drops.
+
+## 2. Flash/Light Leak Transition
+
+```
+Clip A  |-------|
+        |       |
+Flash   |       |⚡️|
+        |       |
+Clip B  |       |-------|
+Audio   ♪    ♪    ♪    ♪
+             ^
+           Flash on beat
+```
+
+Flash transitions create visual punctuation that mimics the brightness and impact of certain sounds like cymbal crashes or electronic effects.
+
+## 3. Zoom Transition (Push/Pull)
+
+```
+Clip A  |-------|>>>>>>>>>|
+                          |
+Clip B                    |<<<<<<<|-------|
+Audio   ♪    ♪    ♪    ♪    ♪    ♪    ♪
+                 ^         ^
+           Zoom starts    Beat drop
+```
+
+Zoom transitions create a sense of movement and energy that matches musical build-ups. Zoom in during a build-up, then cut or zoom out on the drop.
+
+## 4. Wipe/Slide Transition
+
+```
+Clip A  |-------|→→→→→→→→→|
+                          |
+Clip B  |←←←←←←←←←|-------|
+Audio   ♪    ♪    ♪    ♪    ♪
+                 ^
+            Wipe follows
+           directional sound
+```
+
+Wipe transitions follow the directional energy of the music, often used for transitional elements between verses and choruses.
+
+## 5. Dissolve/Crossfade Transition
+
+```
+Clip A  |-------|∿∿∿∿∿∿∿∿∿|
+                |∿∿∿∿∿∿∿∿∿|
+Clip B          |∿∿∿∿∿∿∿∿∿|-------|
+Audio   ♪    ♪    ♪    ♪    ♪    ♪
+                 ^
+           Dissolve matches
+            phrase length
+```
+
+Dissolves create gradual blends that work well for flowing, melodic sections. The length of the dissolve should match the musical phrase.
+
+## 6. Motion-Based Transition
+
+```
+Clip A  |-------|↗️
+                 ↘️
+Clip B           ↗️|-------|
+Audio   ♪    ♪    ♪    ♪    ♪
+                 ^
+           Motion follows
+            musical flow
+```
+
+Motion-based transitions use the natural movement within clips to create seamless transitions that match the rhythm of the music.
+
+## 7. J-Cut (Audio Leads Visual)
+
+```
+Clip A  |-------|
+        |       |
+Clip B  |       |-------|
+Audio A ♪    ♪  |
+Audio B      ♪    ♪    ♪
+             ^
+        Audio B starts
+        before visual cut
+```
+
+J-cuts build anticipation by introducing the audio of the next clip before the visual cut, often used for vocal entries.
+
+## 8. L-Cut (Visual Leads Audio)
+
+```
+Clip A  |-------|
+        |       |
+Clip B           |-------|
+Audio A ♪    ♪    ♪  |
+Audio B           |  ♪    ♪
+                  ^
+             Visual cut
+          before audio change
+```
+
+L-cuts create continuity by maintaining the audio from the previous clip after the visual has changed.
+
+## 9. Jump Cut Sequence
+
+```
+Clip A  |-|-|-|-|
+Audio   ♪ ♪ ♪ ♪ ♪
+        ^ ^ ^ ^ ^
+      Jump cuts on each beat
+```
+
+Series of jump cuts create energetic, staccato visual rhythm that matches fast musical elements like hi-hat patterns.
+
+## 10. Dynamic Cutting (Multiple Transition Types)
+
+```
+Clip A  |------|
+Clip B          |→→→|
+Clip C              |⚡️|
+Clip D                |----|
+Audio   ♪    ♪    ♪    ♪    ♪
+             ^    ^    ^
+           Cut   Wipe  Flash
+```
+
+Dynamic cutting combines multiple transition types in quick succession to match complex rhythmic patterns, often used for electronic music drops.
+
+## Transition Timing Strategies
+
+### On-Beat vs. Off-Beat Transitions
+
+```
+On-Beat:
+Audio   ♪    ♪    ♪    ♪
+        ^    ^    ^    ^
+       Cut  Cut  Cut  Cut
+
+Off-Beat:
+Audio   ♪    ♪    ♪    ♪
+           ^    ^    ^
+          Cut  Cut  Cut
+```
+
+On-beat transitions create predictable, satisfying visual rhythm, while off-beat transitions create tension and unexpected visual rhythm.
+
+### Phrase-Based Transitions
+
+```
+Audio   ♪♪♪♪|♪♪♪♪|♪♪♪♪|♪♪♪♪
+        ^         ^
+      Major     Major
+    transition transition
+    at phrase   at phrase
+      start      start
+```
+
+Phrase-based transitions align with musical structure rather than individual beats, creating broader structural alignment.
+
+### Anticipatory vs. Delayed Transitions
+
+```
+Anticipatory:
+Audio       ♪    ♪    ♪
+        ^
+     Transition
+     starts before
+        beat
+
+Delayed:
+Audio   ♪    ♪    ♪
+           ^
+        Transition
+        after beat
+```
+
+Anticipatory transitions create forward momentum, while delayed transitions create a laid-back feel.
+
+## Matching Transitions to Musical Elements
+
+```
+Bass Drop:    |⚡️| or |>>>>>| (Flash or Zoom)
+Percussion:   |-| (Hard Cut)
+Melody:       |∿∿∿∿∿| (Dissolve)
+Build-up:     |>>>>>>>| (Zoom)
+Vocal Entry:  |J-Cut|
+Phrase End:   |L-Cut| or |→→→→→|
+Atmospheric:  |~~~~| (Defocus)
+High-Energy:  |-|⚡️|→→→|-| (Multiple Types)
+```
+
+Different musical elements call for different types of transitions to effectively match the energy and character of the music.
